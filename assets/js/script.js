@@ -2,16 +2,16 @@ var today = document.querySelector("#theDate");
 
 let objectDate = new Date();
 let day = objectDate.getDate();
-console.log(day); // 23
+
 
 let month = objectDate.getMonth();
-console.log(month + 1); // 8
+
 
 let year = objectDate.getFullYear();
-console.log(year); // 2022
+
 
 let format1 = month + "/" + day + "/" + year;
-console.log(format1); // 7/23/2022
+
 
 today.textContent = "Today's date: " + format1;
 
@@ -23,12 +23,26 @@ var weight;
 
 const weightStored = JSON.parse(localStorage.getItem("weightRecord")) || [];
 
-storDate = weightStored.map(record => {
+var storDate = weightStored.map(record => {
     return record.myDate;
-})
+});
+
+var weights = [];
+const lastWeight = weightStored.map(record => {
+    weights.push(record.myWeight);
+    return record.myWeight;
+});
+//console.log(weights);
+var lastStoredWeight = weights.slice(-1);
+var newWeight = parseFloat(lastStoredWeight);
+
+
+
+console.log("last: " + lastWeight);
+console.log(lastWeight.myWeight);
 
 console.log(typeof(storDate));
-console.log(storDate[0]);
+//console.log(storDate[0]);
 var timestamp = storDate[0];
 console.log(typeof(timestamp));
 var convertdate = new Date(timestamp);
@@ -52,14 +66,17 @@ for (var i = 190; i < 260; i++) {
 
 measureWeight.innerHTML = weight;
 
+  measureWeight.value = newWeight;
+
+
 var recordBtn = document.querySelector("#recordBtn");
 
 recordBtn.addEventListener("click", addWeight);
 
 function addWeight(){
-    console.log(Date.now());
-    console.log(measureWeight.value)
-
+    //console.log(Date.now());
+   // console.log(measureWeight.value);
+ 
 
     //declaring weight object
     var weightTracking = {
