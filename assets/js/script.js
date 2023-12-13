@@ -1,3 +1,5 @@
+$(function () { 
+
 var today = document.querySelector("#theDate");
 
 let objectDate = new Date();
@@ -82,6 +84,7 @@ function addWeight(){
     var weightTracking = {
         myDate: Date.now(),
         myWeight: measureWeight.value
+        
     }
       
     weightStored.push(weightTracking);
@@ -102,3 +105,6 @@ function clearWeight(){
    localStorage.removeItem("weightRecord");
    window.location.reload();
 }
+
+
+});

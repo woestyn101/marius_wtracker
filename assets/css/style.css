@@ -29,6 +29,13 @@ header {
     font-size: 1.3rem;
 }
 
+#gainLoss {
+  display: flex;
+  justify-content: space-between;
+  margin-left:10px;
+  margin-right: 10px;
+}
+
 /* CSS */
 .button-21 {
     align-items: center;
